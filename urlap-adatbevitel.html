@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adatbevitel, űrlap</title>
+    <style>
+        #ki2
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adatbevitel, űrlap</h1>
+
+    <!--űrlap: from, űrlapelemek: input,
+    select, textarea, button
+    űrlapelemek tulajdonságai:
+    type, size, maxlenght, value, placeholder
+    szöveg és űrlapelem összekapcsolása: label
+    -->
+
+    <label for="adat1">Szöveg: </label>
+    <input id="adat1" type="text" size="8" maxlength="5"
+    placeholder="alap">
+
+    <br>
+
+    <label for="adat2">Szöveg: </label>
+    <input type="date" id="adat2">
+
+    <br>
+
+    <!-- <input type="button": value="gomb"> -->
+    <button onclick="muvelet()">Számolj</button>
+
+    <br>
+    <div id="kimenet"></div>
+    <div id="ki2">Itt van egy szöveg</div>
+    <div id="ki3">xxxxxx</div>
+
+    <script>
+        // fügvény: function nev(parameterek) {utasítások}
+
+        function muvelet(){
+            // objektum megkeresése: getElementById("azonosító")
+            // obj. tul.: obj.tul
+            const elso = parseInt(document.getElementById("adat1").value);
+            console.log(elso, typeof elso);
+
+            const masodik = document.getElementById("adat2").value;
+            console.log(masodik, typeof masodik);
+
+            let sz = elso*100%29;
+            // document.write(elso, sz);
+
+            let o = document.getElementById("kimenet")
+            o.innerHTML = "<b> Az eredmény: <b>"+sz+"és a dátum: "+masodik;
+            o.style.color = "red";
+            o.style.backgroundColor = "yellow";
+            o.style.marginTop = "20px";
+
+            document.getElementById("ki2").innerHTML += sz;
+            document.getElementById("ki2").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
